@@ -48,5 +48,4 @@ def predict(request: EssayType):
 
 @app.get("/version")
 async def version():
-    file = open("VERSION", "r")
     return {"version": "1.0"}
