@@ -1,8 +1,7 @@
 tensorflow
-python - multipart
 uvicorn
 fastapi
-opencv - python
+opencv
 matplotlib
 numpy
 PIL
