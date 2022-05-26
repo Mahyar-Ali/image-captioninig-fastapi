@@ -50,7 +50,3 @@ def predict(request: EssayType):
 async def version():
     file = open("VERSION", "r")
     return {"version": "1.0"}
-
-
-if __name__ == "__main__":
-    uvicorn.run(app="main:app")
