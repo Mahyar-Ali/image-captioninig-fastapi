@@ -42,7 +42,7 @@ def predict(request: ReqType):
         result, attention_plot = evaluate(path, encoder, decoder, tokenizer)
 
         attention_plot = plot_attention(path, result, attention_plot)
-
+        return {"result": str(result)}
         return {"result": result, "attention_plot": list(attention_plot)}
 
     except:
