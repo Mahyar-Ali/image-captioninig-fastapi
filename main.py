@@ -7,6 +7,13 @@ from fastapi import FastAPI, File, HTTPException, UploadFile, status
 app = FastAPI()
 
 
+class NumpyEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return json.JSONEncoder.default(self, obj)
+
+
 @app.post("/upload")
 async def upload(file: UploadFile = File(...)):
     try:
@@ -44,7 +51,9 @@ def predict(request: ReqType):
 
         attention_plot = plot_attention(path, result, attention_plot)
         attention_plot = list(attention_plot)
-        json_obj = json.dumps({"result": str(result), "canvas": attention_plot})
+        json_obj = json.dumps(
+            {"result": str(result), "canvas": attention_plot}, cls=NumpyEncoder
+        )
         return json_obj
 
     except Exception as e:
