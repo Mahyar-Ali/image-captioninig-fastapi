@@ -1,6 +1,7 @@
 import json
 from enum import Enum
 
+import numpy as np
 import uvicorn
 from fastapi import FastAPI, File, HTTPException, UploadFile, status
 
