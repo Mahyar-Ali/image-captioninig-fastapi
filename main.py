@@ -1,6 +1,4 @@
-from base64 import encode
 from enum import Enum
-from unittest.mock import patch
 
 import uvicorn
 from fastapi import FastAPI, File, HTTPException, UploadFile, status
