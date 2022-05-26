@@ -47,8 +47,8 @@ def predict(request: ReqType):
         json_obj = json.dumps({"result": str(result), "canvas": attention_plot})
         return json_obj
 
-    except:
-        return {"message": "Unexpected Error"}
+    except Exception as e:
+        return {"message": f"Unexpected Error {e}"}
 
 
 @app.get("/version")
