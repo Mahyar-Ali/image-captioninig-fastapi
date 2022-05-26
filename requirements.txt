@@ -4,4 +4,4 @@ fastapi
 opencv-python
 matplotlib
 numpy
-PIL
+Pillow
