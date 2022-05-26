@@ -37,6 +37,7 @@ from eval import evaluate, plot_attention
 @app.post("/predict")
 def predict(request: ReqType):
     request_dictionary = request.dict()
+    print(request_dictionary)
     path = str("images/" + request_dictionary["image_name"])
     try:
         result, attention_plot = evaluate(path, encoder, decoder, tokenizer)
