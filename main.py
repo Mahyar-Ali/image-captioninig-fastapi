@@ -24,7 +24,7 @@ from pydantic import BaseModel
 
 
 class ReqType(BaseModel):
-    image_name = str
+    image_name: str
 
 
 from model import load_model
