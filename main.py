@@ -20,7 +20,10 @@ async def upload(file: UploadFile = File(...)):
     return {"message": f"Successfuly uploaded {file.filename}"}
 
 
-class EssayType(str, Enum):
+from pydantic import BaseModel
+
+
+class ReqType(BaseModel):
     image_name = str
 
 
@@ -32,7 +35,7 @@ from eval import evaluate, plot_attention
 
 
 @app.post("/predict")
-def predict(request: EssayType):
+def predict(request: ReqType):
     request_dictionary = request.dict()
     path = str("images/" + request_dictionary["image_name"])
     try:
