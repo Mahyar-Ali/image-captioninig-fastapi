@@ -1,3 +1,4 @@
+import json
 from enum import Enum
 
 import uvicorn
@@ -43,8 +44,8 @@ def predict(request: ReqType):
 
         attention_plot = plot_attention(path, result, attention_plot)
         attention_plot = list(attention_plot)
-        print(type(attention_plot))
-        return {"result": str(result), "attention_plot": attention_plot}
+        json_obj = json.dumps({"result": str(result), "canvas": attention_plot})
+        return json_obj
 
     except:
         return {"message": "Unexpected Error"}
