@@ -1,0 +1,5 @@
+tensorflow
+python-multipart
+uvicorn
+fastapi
+opencv-python
