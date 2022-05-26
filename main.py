@@ -42,7 +42,9 @@ def predict(request: ReqType):
         result, attention_plot = evaluate(path, encoder, decoder, tokenizer)
 
         attention_plot = plot_attention(path, result, attention_plot)
-        return {"result": str(result), "attention_plot": list(attention_plot)}
+        attention_plot = list(attention_plot)
+        print(type(attention_plot))
+        return {"result": str(result), "attention_plot": attention_plot}
 
     except:
         return {"message": "Unexpected Error"}
